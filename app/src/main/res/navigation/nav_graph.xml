@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/contactList">
+
+    <fragment
+        android:id="@+id/contactList"
+        android:name="com.example.contactapp.ui.ContactList"
+        android:label="contact list"
+        tools:layout="@layout/fragment_contact_list">
+        <action
+            android:id="@+id/action_contactList_to_addContact"
+            app:destination="@id/addContact" />
+        <action
+            android:id="@+id/action_contactList_to_profile"
+            app:destination="@id/profile" />
+    </fragment>
+    <fragment
+        android:id="@+id/addContact"
+        android:name="com.example.contactapp.ui.AddContact"
+        android:label="add contact"
+        tools:layout="@layout/fragment_add_contact" />
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.example.contactapp.ui.Profile"
+        android:label="profile"
+        tools:layout="@layout/fragment_profile">
+        <argument
+            android:name="contact"
+            app:argType="com.example.contactapp.model.Contact" />
+        <action
+            android:id="@+id/action_profile_to_edit"
+            app:destination="@id/edit" />
+    </fragment>
+    <fragment
+        android:id="@+id/edit"
+        android:name="com.example.contactapp.ui.Edit"
+        android:label="edit"
+        tools:layout="@layout/fragment_edit">
+        <argument
+            android:name="contact"
+            app:argType="com.example.contactapp.model.Contact" />
+    </fragment>
+</navigation>
